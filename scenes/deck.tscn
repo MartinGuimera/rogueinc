@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bq4xjgkeef0ot"]
+
+[node name="Deck" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
