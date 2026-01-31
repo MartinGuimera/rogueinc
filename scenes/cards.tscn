@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://8e67dkmdeo0e"]
-
-[ext_resource type="Texture2D" uid="uid://duqtqrtqilg1m" path="res://assets/sprites/cards/simple_attack.png" id="1_cqxa1"]
-
-[node name="cards" type="Node2D"]
-
-[node name="base" type="Sprite2D" parent="."]
-texture = ExtResource("1_cqxa1")

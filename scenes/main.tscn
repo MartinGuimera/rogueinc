@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq4xjgkeef0ot"]
+
+[ext_resource type="Script" uid="uid://bf8ef3ijnveto" path="res://src/managers/cardManager.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://olsnek44e04g" path="res://scenes/slots.tscn" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://bf2jih36fa5ly" path="res://src/managers/playerHand.gd" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://doyj788aia58j" path="res://scenes/deck.tscn" id="4_tefeu"]
+[ext_resource type="Script" uid="uid://dw20kj8tf2c3y" path="res://src/managers/DiscardPile.gd" id="7_85g3d"]
+[ext_resource type="Script" uid="uid://cns4es6wukj4a" path="res://src/managers/input_manager.gd" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bx7oayjfmp085" path="res://scenes/discard_pile.tscn" id="7_tipki"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("1_sugp2")
+
+[node name="SlotsManager" type="Node2D" parent="."]
+
+[node name="Slots" parent="SlotsManager" instance=ExtResource("2_jyhfs")]
+position = Vector2(773, 689)
+scale = Vector2(6, 8.5)
+
+[node name="Slots2" parent="SlotsManager" instance=ExtResource("2_jyhfs")]
+position = Vector2(1027.8, 689)
+scale = Vector2(6, 8.5)
+
+[node name="Slots3" parent="SlotsManager" instance=ExtResource("2_jyhfs")]
+position = Vector2(773, 825)
+scale = Vector2(6, 8.5)
+
+[node name="Slots4" parent="SlotsManager" instance=ExtResource("2_jyhfs")]
+position = Vector2(1027.8, 825)
+scale = Vector2(6, 8.5)
+
+[node name="CardSlots" type="Node2D" parent="."]
+position = Vector2(939.4, 774)
+scale = Vector2(5.2, 8.5)
+
+[node name="PlayerHand" type="Node2D" parent="."]
+script = ExtResource("4_jyhfs")
+
+[node name="Deck" parent="." instance=ExtResource("4_tefeu")]
+position = Vector2(150, 1080)
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("7_o6xl0")
+
+[node name="DiscardPile" parent="." instance=ExtResource("7_tipki")]
+position = Vector2(1770, 1080)
+scale = Vector2(3.5, 3.5)
+script = ExtResource("7_85g3d")

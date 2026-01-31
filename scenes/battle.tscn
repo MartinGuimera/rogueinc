@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bxkgw10mi4cc1"]
+
+[ext_resource type="Texture2D" uid="uid://ck5o0scf1vk0k" path="res://assets/sprites/backgrounds/background.png" id="1_th188"]
+[ext_resource type="Script" uid="uid://tfgkvam815mm" path="res://src/managers/battle_manager.gd" id="2_p1qf1"]
+[ext_resource type="PackedScene" path="res://scenes/cards.tscn" id="3_4k1nj"]
+[ext_resource type="Resource" uid="uid://cetxnmupisj6k" path="res://src/resources/card_data/quick_attack.tres" id="4_f4pi3"]
+[ext_resource type="PackedScene" uid="uid://b3dwu0hta2pa5" path="res://scenes/player.tscn" id="5_yahae"]
+[ext_resource type="PackedScene" uid="uid://ctwvqw8c1gkbr" path="res://scenes/enemy.tscn" id="6_v7i3o"]
+[ext_resource type="Resource" uid="uid://b7quci4hh76jt" path="res://src/resources/enemy_data/crow_data.tres" id="7_66ngm"]
+
+[node name="BattleMain" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(305, 201)
+scale = Vector2(0.26529944, 0.26529947)
+texture = ExtResource("1_th188")
+
+[node name="BattleManager" type="Node" parent="."]
+script = ExtResource("2_p1qf1")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="PlayerSpawn" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(162, 318)
+
+[node name="EnemySpawn" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(525, 262)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HandContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 80.0
+offset_right = 41.0
+offset_bottom = 336.0
+
+[node name="CardUI" parent="CanvasLayer/HandContainer" instance=ExtResource("3_4k1nj")]
+layout_mode = 2
+card_data = ExtResource("4_f4pi3")
+
+[node name="TurnTimerLabel" type="Label" parent="CanvasLayer"]
+offset_left = 216.0
+offset_top = 145.0
+offset_right = 256.0
+offset_bottom = 168.0
+
+[node name="Player" parent="." instance=ExtResource("5_yahae")]
+
+[node name="Enemy" parent="." instance=ExtResource("6_v7i3o")]
+enemy_data = ExtResource("7_66ngm")
+
+[connection signal="card_activated" from="CanvasLayer/HandContainer/CardUI" to="BattleManager" method="add_to_player_pool"]

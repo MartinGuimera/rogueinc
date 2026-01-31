@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://b7quci4hh76jt"]
+
+[ext_resource type="Script" uid="uid://yoo0aqq54sum" path="res://src/resources/enemy_data/enemy_data.gd" id="1_f0equ"]
+[ext_resource type="Texture2D" uid="uid://5l1gjcgjm1wy" path="res://assets/sprites/enemies/crow.png" id="2_i31r7"]
+
+[resource]
+script = ExtResource("1_f0equ")
+sprite = ExtResource("2_i31r7")
+metadata/_custom_type_script = "uid://yoo0aqq54sum"
