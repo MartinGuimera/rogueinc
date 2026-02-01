@@ -10,8 +10,7 @@ func is_occupied() -> bool:
 
 func occupy_slot(card: CardUI) -> void:
 	current_card = card
-	if card.has_method("set_slot"):
-		card.set_slot(self)
+	card.set_slot(self)
 	
 	if not cards_history.has(card):
 		cards_history.append(card)
